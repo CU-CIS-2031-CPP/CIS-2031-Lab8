@@ -23,11 +23,14 @@ Monster monsters[5] = {
 // This function takes a monster and prints it's name and hitpoints
 // to the console, and prints "DEAD" if it has negative HP
 void printMonsterStats(Monster m){
-    // ❓❓ Lab Question 1 ❓❓
+    cout << m.name << " hp:" << m.hitpoints;
+    if ( m.hitpoints <= 0 )
+        cout << " DEAD";
+    cout << endl;
 }
 
 //Fight two monsters!
-void fight(Monster m1, Monster m2){
+void fight(Monster &m1, Monster &m2){
     cout << m1.name << " Fights " << m2.name << "!" << endl;
     int round = 0;
     while ( m1.hitpoints > 0 && m2.hitpoints > 0 ){
@@ -45,10 +48,15 @@ void fight(Monster m1, Monster m2){
 }
 
 void main(){
-
-    //❓❓ Lab Question 2
-    //Add your function call here:
-
-    //Comment out this line
-    printMonsterStats(monsters[3]);
+    for ( int i = 0; i < 5; i++){
+        Monster a = monsters[i];
+        for ( int j = 0; j < 5; j++ ){
+            Monster b = monsters[j];
+            if ( i != j ){ //Dont fight yourself
+                if ( a.hitpoints > 0 && b.hitpoints > 0){ //Dont beat a dead horse
+                    fight(a,b);
+                }
+            }
+        }
+    }
 }
