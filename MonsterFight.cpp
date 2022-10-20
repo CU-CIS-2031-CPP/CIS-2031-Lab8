@@ -49,7 +49,7 @@ void fight(Monster &m1, Monster &m2){
     }
 }
 
-void main(){
+int main(){
 
     //Loop through all monsters to choose the first
     //opponent for each fight
@@ -79,4 +79,6 @@ void main(){
         printMonsterStats(m);
     }
     cout << endl;
+
+    return 0;
 }
