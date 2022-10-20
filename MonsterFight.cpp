@@ -59,4 +59,9 @@ void main(){
             }
         }
     }
+
+    cout << endl << "=== Final Results ===" << endl;
+    for ( Monster m : monsters ){
+        printMonsterStats(m);
+    }
 }
