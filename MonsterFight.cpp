@@ -13,7 +13,7 @@ struct Monster {
 
 //Create an array of five monsters
 Monster monsters[5] = {
-    Monster{"Godzilla", 5, 62}, //These values are in the same order as in the struct!
+    Monster{"Godzilla", 5, 162}, //These values are in the same order as in the struct!
     Monster{"Mothra", 10, 37},
     Monster{"Babadook", 3, 101},
     Monster{"Frankenstein", 2, 23},
