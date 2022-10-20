@@ -64,4 +64,5 @@ void main(){
     for ( Monster m : monsters ){
         printMonsterStats(m);
     }
+    cout << endl;
 }
