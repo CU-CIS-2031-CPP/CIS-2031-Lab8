@@ -30,6 +30,8 @@ void printMonsterStats(Monster m){
 }
 
 //Fight two monsters!
+//Takes references to each monster, so the variables
+//in the calling function are changed.
 void fight(Monster &m1, Monster &m2){
     cout << m1.name << " Fights " << m2.name << "!" << endl;
     int round = 0;
@@ -48,18 +50,30 @@ void fight(Monster &m1, Monster &m2){
 }
 
 void main(){
+
+    //Loop through all monsters to choose the first
+    //opponent for each fight
     for ( int i = 0; i < 5; i++){
+        //This local variable contains the opponent for each fight:
         Monster a = monsters[i];
+
+        //Loop through all the monsters to choose
+        //the second opponent for each fight.
         for ( int j = 0; j < 5; j++ ){
+            //This local variable contains the second opponent for each fight:
             Monster b = monsters[j];
-            if ( i != j ){ //Dont fight yourself
-                if ( a.hitpoints > 0 && b.hitpoints > 0){ //Dont beat a dead horse
+
+            //Only fight if they are two different monsters.
+            if ( i != j ){
+                //Dont beat a dead horse
+                if ( a.hitpoints > 0 && b.hitpoints > 0){
                     fight(a,b);
                 }
             }
         }
     }
 
+    //Print out the final results
     cout << endl << "=== Final Results ===" << endl;
     for ( Monster m : monsters ){
         printMonsterStats(m);
